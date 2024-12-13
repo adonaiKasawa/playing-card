@@ -1,0 +1,23 @@
+<div id="card">
+  {{isServerRunning}}
+  @if (isServerRunning) {
+  <p>Yes, the server is running</p>
+  }@else {
+  <p>No, the server is not running</p>
+  }
+  @for (os of operatingSystems; track os.id) {
+  {{ os.name }}
+  }
+
+
+  <div [contentEditable]="isEditable"></div>
+
+  <section (mouseover)="onMouseOver(true)" (mouseout)="onMouseOver(false)">
+    There's a secret message for you, hover to reveal 👀
+    {{ message }}
+  </section>
+
+  <p>The user's occupation is {{ occupation }}</p>
+
+  <button class="btn" (click)="addItem()">Add Item</button>
+</div>
